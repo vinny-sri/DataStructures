@@ -8,12 +8,16 @@ public class LinkedList {
         this.next = null;
     }
 
+    public String getString() {
+        return this.str;
+    }
+
     public LinkedList get(int index) {
         int currInd = 0;
         LinkedList currNode = this;
-        while (curr < index && this != null) {
+        while (currInd != index && this != null) {
             if (currInd == index) {
-                return currNode.str;
+                return currNode;
             }
             currNode = currNode.next;
             currInd++;
@@ -43,13 +47,13 @@ public class LinkedList {
         if (node.next != null) {
             System.out.println("You can only insert a single node");
         }
-        if (this.size() <= index) {
+        if (this.size() < index) {
             System.out.println("Index out of bounds");
         }
         int currInd = 0;
         LinkedList curr = this;
         while (currInd < index && curr != null) {
-            if (currInd == index) {
+            if (currInd == index - 1) {
                 LinkedList temp = curr.next;
                 curr.next = node;
                 node.next = temp;
@@ -60,7 +64,7 @@ public class LinkedList {
         }
     }
 
-    public LinkedList delete(int index) {
+    public void delete(int index) {
         if (this.size() <= index) {
             System.out.println("Index out of bounds");
         }
@@ -68,7 +72,7 @@ public class LinkedList {
         LinkedList curr = this;
         while (currInd < index && curr != null) {
             if (currInd == index - 1) {
-                curr = curr.next.next;
+                curr.next = curr.next.next;
                 break;
             }
             currInd++;
@@ -79,6 +83,23 @@ public class LinkedList {
     @Override
     public String toString() {
         int index = 0;
-        while (index < this.)
+        String total = "";
+        while (index < this.size()) {
+            total = total + " " + this.str;
+        }
+        return total;
+    }
+
+    public static void main(String[] var0) {
+        LinkedList first = new LinkedList("one");
+        first.next = new LinkedList("two");
+        System.out.println(first.size());
+        first.insert(new LinkedList("three"), 2);
+        System.out.println(first.size());
+        System.out.println(first.getLast().getString());
+
+        first.delete(1);
+        System.out.println(first.get(0).getString());
+        System.out.println(first.get(1).getString());
     }
 }
