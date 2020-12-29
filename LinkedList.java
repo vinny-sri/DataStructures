@@ -90,7 +90,7 @@ public class LinkedList {
         return total;
     }
 
-    public static void main(String[] var0) {
+    public static void main(String[] args) {
         LinkedList first = new LinkedList("one");
         first.next = new LinkedList("two");
         System.out.println(first.size());
