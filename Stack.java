@@ -45,7 +45,7 @@ public class Stack {
     }
 
     public String poll() {
-        return this.getNodes()[this.top - 1]
+        return this.getNodes()[this.top - 1];
     }
 
     public static void main(String[] args) {
@@ -55,9 +55,8 @@ public class Stack {
         System.out.println(first.poll());
         first.push("three");
         System.out.println(first.poll());
-        first.pop();
-        first.pop();
+        System.out.println(first.pop());
+        System.out.println(first.pop());
         System.out.println(first.poll());
-
     }
 }
